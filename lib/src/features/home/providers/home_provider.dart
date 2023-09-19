@@ -27,7 +27,7 @@ class HomeProvider with ChangeNotifier {
     }
 
     if (currentOffset < maxPage || isFirstLoad) {
-      final TodolistModel data = await homeServices.getTasks(
+      final TodolistModel data = await HomeServices.getTasks(
           status: paramTaskStatus, offset: currentOffset, limit: 10);
       maxPage = data.totalPages!;
       currentOffset++;

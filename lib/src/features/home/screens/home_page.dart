@@ -9,6 +9,7 @@ import 'package:todolist_app/themes/app_theme.dart';
 
 import '../models/todolist_model.dart';
 import '../providers/home_provider.dart';
+import '../services/home_service.dart';
 import '../widgets/todolist_tab_widget.dart';
 import '../../../constants/constants.dart';
 
@@ -40,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                     _secondsRemaining = Constants.passcodeCountDown;
                   });
                   _startTimer();
-                  _navigatePop(context);
+                  HomeServices().navigatePop(context);
                 },
                 context: context,
                 correctString: Constants.password,
@@ -49,10 +50,6 @@ class _HomePageState extends State<HomePage> {
         }
       });
     });
-  }
-
-  void _navigatePop(BuildContext context) {
-    Navigator.of(context).pop();
   }
 
   @override

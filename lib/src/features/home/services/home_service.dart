@@ -1,12 +1,17 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:todolist_app/src/constants/constants.dart';
 import '../models/todolist_model.dart';
 import 'dart:developer' as dev;
 import 'package:http/http.dart' as http;
 
 class HomeServices {
-  Future<TodolistModel> getTasks(
+  void navigatePop(BuildContext context) {
+    Navigator.of(context).pop();
+  }
+
+  static Future<TodolistModel> getTasks(
       {required String status, required int offset, required int limit}) async {
     TodolistModel data = TodolistModel();
     try {
